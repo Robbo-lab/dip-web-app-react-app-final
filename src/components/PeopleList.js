@@ -3,7 +3,7 @@ import { people } from "../data/people.js";
 
 export default function PeopleList() {
   return (
-    <div className="box mt-1">
+    <div className="box mt-3">
       <h2 className="title is-4">People List</h2>
       <ul>
         {people.map((person) => (

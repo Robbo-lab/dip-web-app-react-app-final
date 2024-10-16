@@ -11,7 +11,7 @@ const Gallery = () => {
 
   let sculpture = sculptureList[index];
   return (
-    <div className="box mt-1">
+    <div className="box mt-3">
       {/* <Header title="New Gallery" /> */}
       <button className="button is-primary" onClick={handleClick}>
         Next
