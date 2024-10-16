@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 // Load environment variables from .env file into process.env
 const env = dotenv.config().parsed || {};
 
+// Test for removal
 // Convert the env variables to a format DefinePlugin can understand
 const envKeys = Object.keys(env).reduce((prev, next) => {
   prev[`process.env.${next}`] = JSON.stringify(env[next]);
