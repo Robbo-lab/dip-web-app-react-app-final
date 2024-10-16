@@ -36,7 +36,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-    new DefinePlugin(envKeys), // Inject environment variables into the bundle
+    new DefinePlugin({
+      "process.env.NASA_API_KEY": JSON.stringify(process.env.NASA_API_KEY),
+    }),
   ],
   devServer: {
     static: {
