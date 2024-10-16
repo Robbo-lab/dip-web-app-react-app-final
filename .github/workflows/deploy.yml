@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -15,13 +16,20 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build the React app
+      - name: Build the React app with Webpack
         run: npm run build
+
+      - name: Verify dist folder exists
+        run: |
+          if [ ! -d "./dist" ]; then
+            echo "dist folder not found! Build failed."
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
