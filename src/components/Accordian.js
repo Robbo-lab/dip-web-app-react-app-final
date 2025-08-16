@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useState } from "react";
 
@@ -15,7 +17,7 @@ function Panel({ title, isActive, onShow, children }) {
 const Accordion = function Accordion() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="box mt-1">
+    <div className="box mt-3">
       <h2 className="title is-3">Almaty, Kazakhstan</h2>
 
       <Panel

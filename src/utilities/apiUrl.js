@@ -1,5 +1,9 @@
 export const buildApiUrl = (parameters) => {
-  const apiKey = "GurS0wJyr12na3jhvOraArdY3bGr64N2ovBUUTh5";
+  const apiKey = process.env.NASA_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("API key is missing! Make sure NASA_API_KEY is set.");
+  }
 
   let apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 

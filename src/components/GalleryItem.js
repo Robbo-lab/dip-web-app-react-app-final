@@ -26,7 +26,7 @@ const GalleryItem = () => {
 
   // render template
   return (
-    <div className="box mt-1">
+    <div className="box mt-3">
       {item ? (
         <>
           <h2 className="title is-5">

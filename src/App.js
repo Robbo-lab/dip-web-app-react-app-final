@@ -20,25 +20,27 @@ const App = () => {
               All of our components in a Single Page React App
             </h2>
             <Link to="/">
-              <a className="button is-link is-large mr-1">Home </a>
+              <a className="button is-primary is-normal mr-1">Home </a>
             </Link>
             <Link to="/nasa-api">
-              <a className="button is-link is-large mr-1">NASA API</a>
+              <a className="button is-link is-normal mr-1">NASA API</a>
             </Link>
             <Link to="/styled">
-              <a className="button is-link is-large mr-1">Styled Component</a>
+              <a className="button is-info is-normal mr-1">Styled Component</a>
             </Link>
             <Link to="/accordion">
-              <a className="button is-link is-large mr-1">Accordian</a>
+              <a className="button is-success is-normal mr-1">Accordian</a>
             </Link>
             <Link to="/gallery">
-              <a className="button is-link is-large mr-1">Gallery</a>
+              <a className="button is-warning is-normal mr-1">Gallery</a>
             </Link>
             <Link to="/gallery/1">
-              <a className="button is-link is-large mr-1">Gallery Item</a>
+              <a className="button is-warning is-inverted is-normal mr-1">
+                Gallery Item
+              </a>
             </Link>
             <Link to="/people">
-              <a className="button is-link is-large">People List</a>
+              <a className="button is-dark is-normal">People List</a>
             </Link>
             {/* Routing Setup */}
 
