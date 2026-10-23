@@ -9,6 +9,12 @@ const navItems = [
   { to: "/gallery", label: "Gallery" },
   { to: "/people", label: "People List" },
   { to: "/users", label: "User List" },
+  { to: "/date-input", label: "Date Input" },
+  { to: "/likes", label: "Likes" },
+  { to: "/lifecycle", label: "Lifecycle" },
+  { to: "/lifecycle-shared", label: "Shared Lifecycle" },
+  { to: "/user-profile", label: "User Profile" },
+  { to: "/context", label: "Context API" },
 ];
 
 export default function MainLayout() {

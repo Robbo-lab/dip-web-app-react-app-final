@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createBrowserRouter,
   createHashRouter,
@@ -11,6 +11,13 @@ import GalleryItem from "./components/GalleryItem.js";
 import PeopleList from "./components/PeopleList.js";
 import StyledComponent from "./components/StyledComponent.js";
 import UserList from "./components/UserList.js";
+import DateInputComponent from "./components/DateInputComponent.js";
+import LikesComponent from "./components/LikesComponent.js";
+import Lifecycle from "./components/LifeCycle.js";
+import LifeCycleShared from "./components/LifeCycleShared.js";
+import UserProfile from "./components/UserProfile.js";
+import ContextApp from "./ContextApp.js";
+import user from "./data/user.js";
 
 import MainLayout from "./layouts/MainLayout.js";
 
@@ -26,6 +33,17 @@ import { usersLoader, userLoader } from "./loaders/userLoaders.js";
 
 import "bulma/css/bulma.min.css";
 import "./App.css";
+
+function DateInputPage() {
+  const [date, setDate] = useState("");
+
+  return (
+    <div>
+      <DateInputComponent onDateChange={setDate} />
+      <p>Selected date: {date || "None"}</p>
+    </div>
+  );
+}
 
 // Hash URLs allow direct links and refreshes on static GitHub Pages hosting.
 const createRouter =
@@ -46,6 +64,12 @@ const router = createRouter([
       { path: "people", element: <PeopleList /> },
       { path: "people/:id", element: <PersonPage /> },
       { path: "users", loader: usersLoader, element: <UserList /> },
+      { path: "date-input", element: <DateInputPage /> },
+      { path: "likes", element: <LikesComponent /> },
+      { path: "lifecycle", element: <Lifecycle /> },
+      { path: "lifecycle-shared", element: <LifeCycleShared /> },
+      { path: "user-profile", element: <UserProfile user={user} /> },
+      { path: "context", element: <ContextApp /> },
       {
         path: "user/:id",
         loader: userLoader,
