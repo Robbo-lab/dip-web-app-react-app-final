@@ -15,7 +15,7 @@ export default function StyledComponent() {
   return (
     <>
       <section
-        className="animatedSection"
+        className="animatedSection mb-3"
         style={{
           animation: `fadeInScale ${animationDuration}s ease-in-out infinite`,
         }}
