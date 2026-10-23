@@ -25,7 +25,9 @@ export default function StyledComponent() {
       <button className="button is-primary" onClick={handleDurationChange}>
         Click
       </button>
-      <p className="help is-size-7 mt-3">State-driven styles and effects.</p>
+      <p className="help is-size-7 mt-3">
+        State-driven, component loaded styles and effects.
+      </p>
     </>
   );
 }

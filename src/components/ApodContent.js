@@ -3,7 +3,11 @@ import React from "react";
 // Activity 4 - add the retrieved data & implement the template
 const ApodContent = ({ apodData, error }) => {
   if (error) {
-    return <p className="notification is-danger" role="alert">{error}</p>;
+    return (
+      <p className="notification is-danger" role="alert">
+        {error}
+      </p>
+    );
   }
   // console.log(apodData);
   // Step 3 - add a default value for the data
@@ -24,9 +28,10 @@ const ApodContent = ({ apodData, error }) => {
     <div>
       {/* Step 2: Now change this to a ternary */}
       {apodData.map((data, index) => {
-        const explanation = new DOMParser()
-          .parseFromString(data.explanation || "", "text/html")
-          .body.textContent;
+        const explanation = new DOMParser().parseFromString(
+          data.explanation || "",
+          "text/html",
+        ).body.textContent;
 
         return (
           <div key={index} className="box">
@@ -37,8 +42,13 @@ const ApodContent = ({ apodData, error }) => {
             ) : (
               <div key={index} className="box">
                 <div className="video-container">
-                  <a href={data.permalink || data.url} target="_blank" rel="noopener noreferrer">
-                    View this {data.media_type === "image" ? "image" : "media"} on NASA
+                  <a
+                    href={data.permalink || data.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View this {data.media_type === "image" ? "image" : "media"}{" "}
+                    on NASA
                   </a>
                 </div>
               </div>
