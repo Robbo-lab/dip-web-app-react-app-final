@@ -1,51 +1,39 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { DefinePlugin } = require("webpack");
-const dotenv = require("dotenv");
+const { homepage } = require("./package.json");
 
-// Load environment variables from .env file into process.env
-const env = dotenv.config().parsed || {};
+module.exports = (_env, argv = {}) => {
+  const isProduction = argv.mode === "production";
+  const publicPath = process.env.PUBLIC_URL ||
+    (isProduction ? new URL(homepage).pathname : "/");
 
-// Test for removal
-// Convert the env variables to a format DefinePlugin can understand
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
-
-module.exports = {
-  entry: "./src/index.js",
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true, // Ensures dist/ is cleaned on each build
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: "babel-loader",
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
-    new DefinePlugin({
-      "process.env.NASA_API_KEY": JSON.stringify(process.env.NASA_API_KEY),
-    }),
-  ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
+  return {
+    entry: "./src/index.js",
+    output: {
+      filename: "[name].[contenthash].js",
+      path: path.resolve(__dirname, "dist"),
+      publicPath: publicPath.endsWith("/") ? publicPath : `${publicPath}/`,
+      clean: true,
     },
-    compress: true,
-    port: 3000,
-  },
+    module: {
+      rules: [
+        { test: /\.js$/, exclude: /node_modules/, use: "babel-loader" },
+        { test: /\.css$/i, use: ["style-loader", "css-loader"] },
+        { test: /\.(png|jpe?g|gif|svg|ico)$/i, type: "asset/resource" },
+      ],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({ template: "./public/index.html" }),
+      new DefinePlugin({
+        "process.env.NASA_API_KEY": JSON.stringify(process.env.NASA_API_KEY || "DEMO_KEY"),
+      }),
+    ],
+    devServer: {
+      static: { directory: path.join(__dirname, "public") },
+      compress: true,
+      port: 3000,
+      historyApiFallback: true,
+    },
+  };
 };
