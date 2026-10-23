@@ -15,10 +15,10 @@ function Lifecycle() {
   };
 
   return (
-    <div>
-      <h1>Lifecycle Monitor</h1>
-      <p>Count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
+    <div className="box has-text-text has-text-centered mt-5 p-5">
+      <h1 className="title is-3 has-text-text">Lifecycle Monitor</h1>
+      <p className="is-size-4 has-text-weight-semibold mb-5 has-text-text">Count: {count}</p>
+      <button className="button is-link is-medium" onClick={incrementCount}>Increment</button>
     </div>
   );
 }

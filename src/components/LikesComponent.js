@@ -8,7 +8,7 @@ export default function LikesComponent() {
   const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"];
 
   function Header() {
-    return <h2 className="title is-2">Header</h2>;
+    return <h2 className="title is-2 has-text-text">Header</h2>;
   }
 
   function AlertMessage({ like }) {
@@ -41,25 +41,25 @@ export default function LikesComponent() {
 
   return (
     <>
-      <section className="section">
-        <div className="container has-text-centered">
+      <section className="section py-4">
+        <div className="container box has-text-text has-text-centered">
           <Header />
           <div>
-            <ul>
+            <ul className="mb-5">
               {names.map((name) => (
-                <li key={name}>{name}</li>
+                <li key={name} className="py-2 has-text-weight-medium">{name}</li>
               ))}
             </ul>
-            <button className="button" onClick={handleLikeClick}>
+            <button className="button is-success is-medium m-2" onClick={handleLikeClick}>
               Like
             </button>
-            <button className="button" onClick={handleDisLikeClick}>
+            <button className="button is-danger is-medium m-2" onClick={handleDisLikeClick}>
               Dislike
             </button>
           </div>
         </div>
       </section>
-      <section className="section">
+      <section className="section py-4">
         <div className="container has-text-centered">
           <AlertMessage />
         </div>
