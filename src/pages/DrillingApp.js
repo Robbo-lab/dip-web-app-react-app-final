@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SecondComponent from "./components/SecondComponent";
-import FourthComponent from "./components/FourthComponent";
+import SecondComponent from "../components/SecondComponent";
+import FourthComponent from "../components/FourthComponent";
 
 const DrillingApp = () => {
   // Consider our complex UserObject here!!!
