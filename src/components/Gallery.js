@@ -7,7 +7,7 @@ const Gallery = () => {
 
   function handleClick() {
     setIndex((index + 1) % sculptureList.length);
-    debugger;
+    // debugger;
   }
 
   let sculpture = sculptureList[index];

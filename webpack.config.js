@@ -1,7 +1,14 @@
 const path = require("path");
+const { existsSync } = require("node:fs");
+const { loadEnvFile } = require("node:process");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { DefinePlugin } = require("webpack");
 const { homepage } = require("./package.json");
+
+const localEnvPath = path.resolve(__dirname, ".env.local");
+if (existsSync(localEnvPath)) {
+  loadEnvFile(localEnvPath);
+}
 
 module.exports = (_env, argv = {}) => {
   const isProduction = argv.mode === "production";
