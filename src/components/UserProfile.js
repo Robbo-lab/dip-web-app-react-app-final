@@ -36,8 +36,8 @@ function UserProfile(props) {
   const userInfo = getUserInfo(user);
 
   return (
-    <div className="container notification is-primary">
-      <h1>User Profile</h1>
+    <div className="box mt-3">
+      <h2 className="title is-4 has-text-info">{user.firstName} {user.lastName}</h2>
       <p>{greetingMessage}</p>
       <p>{userInfo}</p>
       <p>Age: {age > 18 ? "Adult" : "Minor"}</p>

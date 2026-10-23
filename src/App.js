@@ -63,11 +63,11 @@ const router = createRouter([
       { path: "gallery/:id", element: <GalleryItem /> },
       { path: "people", element: <PeopleList /> },
       { path: "people/:id", element: <PersonPage /> },
-      { path: "users", loader: usersLoader, element: <UserList /> },
       { path: "date-input", element: <DateInputPage /> },
       { path: "likes", element: <LikesComponent /> },
       { path: "lifecycle", element: <Lifecycle /> },
       { path: "lifecycle-shared", element: <LifeCycleShared /> },
+      { path: "users", loader: usersLoader, element: <UserList /> },
       { path: "user-profile", element: <UserProfile user={user} /> },
       { path: "context", element: <ContextApp /> },
       {

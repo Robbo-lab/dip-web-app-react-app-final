@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function LikesComponent() {
   console.log("Like Component Connected");
   const [likes, setLikes] = useState();
   const [dislikes, setDisLikes] = useState();
+  const [lastAction, setLastAction] = useState(null);
 
   const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"];
 
@@ -12,7 +13,7 @@ export default function LikesComponent() {
   }
 
   function AlertMessage({ like }) {
-    return !like ? (
+    return like === null ? (
       <div></div>
     ) : like == 1 ? (
       <div className="notification is-success">You recieved a like</div>
@@ -23,19 +24,13 @@ export default function LikesComponent() {
 
   function handleLikeClick() {
     !likes ? setLikes(1) : setLikes(likes + 1);
+    setLastAction(1);
   }
-
-  useEffect(() => {
-    <AlertMessage like={1} />;
-  }, [likes]);
 
   function handleDisLikeClick() {
     !dislikes ? setDisLikes(1) : setDisLikes(dislikes + 1);
+    setLastAction(0);
   }
-
-  useEffect(() => {
-    <AlertMessage like={0} />;
-  }, [dislikes]);
 
   console.log(likes);
 
@@ -61,7 +56,7 @@ export default function LikesComponent() {
       </section>
       <section className="section py-4">
         <div className="container has-text-centered">
-          <AlertMessage />
+          <AlertMessage like={lastAction} />
         </div>
       </section>
     </>
