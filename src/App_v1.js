@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client"; // Note the change in import path
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 import ApodPage from "./pages/ApodPage.js";
 import DateInputComponent from "./components/DateInputComponent.js";

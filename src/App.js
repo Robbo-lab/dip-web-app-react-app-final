@@ -1,5 +1,9 @@
 import React from "react";
-import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider,
+} from "react-router";
 
 import Accordion from "./components/Accordian.js";
 import Gallery from "./components/Gallery.js";
@@ -24,35 +28,34 @@ import "bulma/css/bulma.min.css";
 import "./App.css";
 
 // Hash URLs allow direct links and refreshes on static GitHub Pages hosting.
-const createRouter = process.env.NODE_ENV === "production"
-  ? createHashRouter
-  : createBrowserRouter;
+const createRouter =
+  process.env.NODE_ENV === "production"
+    ? createHashRouter
+    : createBrowserRouter;
 
-const router = createRouter(
-  [
-    {
-      element: <MainLayout />,
-      children: [
-        { index: true, element: <HomePage /> },
-        { path: "nasa-api", element: <ApodPage /> },
-        { path: "styled", element: <StyledComponent /> },
-        { path: "accordion", element: <Accordion /> },
-        { path: "gallery", element: <Gallery /> },
-        { path: "gallery/:id", element: <GalleryItem /> },
-        { path: "people", element: <PeopleList /> },
-        { path: "people/:id", element: <PersonPage /> },
-        { path: "users", loader: usersLoader, element: <UserList /> },
-        {
-          path: "user/:id",
-          loader: userLoader,
-          element: <UserPage />,
-          errorElement: <RouteError />,
-        },
-        { path: "*", element: <NotFoundPage /> },
-      ],
-    },
-  ],
-);
+const router = createRouter([
+  {
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "nasa-api", element: <ApodPage /> },
+      { path: "styled", element: <StyledComponent /> },
+      { path: "accordion", element: <Accordion /> },
+      { path: "gallery", element: <Gallery /> },
+      { path: "gallery/:id", element: <GalleryItem /> },
+      { path: "people", element: <PeopleList /> },
+      { path: "people/:id", element: <PersonPage /> },
+      { path: "users", loader: usersLoader, element: <UserList /> },
+      {
+        path: "user/:id",
+        loader: userLoader,
+        element: <UserPage />,
+        errorElement: <RouteError />,
+      },
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+]);
 
 export default function App() {
   return <RouterProvider router={router} />;

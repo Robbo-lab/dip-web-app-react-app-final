@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet, useNavigation } from "react-router-dom";
+import { NavLink, Outlet, useNavigation } from "react-router";
 
 const navItems = [
   { to: "/", label: "Home", end: true },

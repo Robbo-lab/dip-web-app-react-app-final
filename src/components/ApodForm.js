@@ -5,7 +5,6 @@ const ApodForm = ({ fetchApodData }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [count, setCount] = useState(5);
-  const [page, setPage] = useState(1);
 
   const handleSubmit = () => {
     const parameters = {};
@@ -13,7 +12,6 @@ const ApodForm = ({ fetchApodData }) => {
     if (startDate) parameters.date_from = startDate.replaceAll("-", "").slice(2);
     if (endDate) parameters.date_to = endDate.replaceAll("-", "").slice(2);
     if (count) parameters.per_page = count;
-    if (page) parameters.page = page;
     if (date) parameters.date = date;
 
     fetchApodData(parameters);
@@ -74,20 +72,6 @@ const ApodForm = ({ fetchApodData }) => {
               type="number"
               value={count}
               onChange={(event) => setCount(event.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Page (list requests only)</label>
-          <div className="control">
-            <input
-              id="page"
-              className="input"
-              type="number"
-              min="1"
-              value={page}
-              onChange={(event) => setPage(event.target.value)}
             />
           </div>
         </div>

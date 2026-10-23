@@ -24,6 +24,10 @@ const ApodContent = ({ apodData, error }) => {
     <div>
       {/* Step 2: Now change this to a ternary */}
       {apodData.map((data, index) => {
+        const explanation = new DOMParser()
+          .parseFromString(data.explanation || "", "text/html")
+          .body.textContent;
+
         return (
           <div key={index} className="box">
             {data.media_type === "image" && data.hdurl ? (
@@ -41,7 +45,7 @@ const ApodContent = ({ apodData, error }) => {
             )}
             <h2 className="title is-4">{data.title}</h2>
             <p>{data.date}</p>
-            <p>{data.explanation}</p>
+            <p>{explanation}</p>
           </div>
         );
       })}
