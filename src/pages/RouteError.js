@@ -12,6 +12,7 @@ export default function RouteError() {
       <h2 className="title is-4">Route error</h2>
       <p>{message}</p>
       <Link to="/users">Back to Users</Link>
+      <p className="help is-size-7 mt-3">Route errors with useRouteError.</p>
     </div>
   );
 }

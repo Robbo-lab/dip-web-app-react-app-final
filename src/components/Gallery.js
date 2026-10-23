@@ -12,7 +12,7 @@ const Gallery = () => {
 
   let sculpture = sculptureList[index];
   return (
-    <div className="box mt-3">
+    <>
       {/* <Header title="New Gallery" /> */}
       <button className="button mb-1 is-primary" onClick={handleClick}>
         Next
@@ -25,7 +25,8 @@ const Gallery = () => {
       </h3>
       <img src={sculpture.url} alt={sculpture.alt} />
       <p>{sculpture.description}</p>
-    </div>
+      <p className="help is-size-7 mt-3">State-driven gallery navigation.</p>
+    </>
   );
 };
 

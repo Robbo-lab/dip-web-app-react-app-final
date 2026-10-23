@@ -36,29 +36,38 @@ export default function LikesComponent() {
 
   return (
     <>
-      <section className="section py-4">
-        <div className="container box has-text-text has-text-centered">
-          <Header />
-          <div>
-            <ul className="mb-5">
-              {names.map((name) => (
-                <li key={name} className="py-2 has-text-weight-medium">{name}</li>
-              ))}
-            </ul>
-            <button className="button is-success is-medium m-2" onClick={handleLikeClick}>
-              Like
-            </button>
-            <button className="button is-danger is-medium m-2" onClick={handleDisLikeClick}>
-              Dislike
-            </button>
-          </div>
+      <div className="has-text-text has-text-centered">
+        <Header />
+        <div>
+          <ul className="mb-5">
+            {names.map((name) => (
+              <li key={name} className="py-2 has-text-weight-medium">
+                {name}
+              </li>
+            ))}
+          </ul>
+          <button
+            className="button is-success is-medium m-2"
+            onClick={handleLikeClick}
+          >
+            Like
+          </button>
+          <button
+            className="button is-danger is-medium m-2"
+            onClick={handleDisLikeClick}
+          >
+            Dislike
+          </button>
         </div>
-      </section>
+      </div>
       <section className="section py-4">
         <div className="container has-text-centered">
           <AlertMessage like={lastAction} />
         </div>
       </section>
+      <p className="help is-size-7 mt-3">
+        Click events and conditional rendering.
+      </p>
     </>
   );
 }

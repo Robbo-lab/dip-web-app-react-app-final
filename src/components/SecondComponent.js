@@ -3,9 +3,9 @@ import ThirdComponent from "./ThirdComponent";
 
 // Uncomment these lines on we have context setup using ContextApp
 const SecondComponent = () => {
-    return (
+  return (
     <div>
-      <h2>Second Component</h2>
+      <h2>Second Component User is NOT DEFINED </h2>
       {/* <ThirdComponent userName={userName} /> */}
       <ThirdComponent />
     </div>

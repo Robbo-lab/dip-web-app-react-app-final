@@ -29,6 +29,7 @@ function DateInputComponent({ onDateChange }) {
           onChange={handleChange}
         />
       </div>
+      <p className="help is-size-7 mt-3">Parent callbacks on input changes.</p>
     </div>
   );
 }

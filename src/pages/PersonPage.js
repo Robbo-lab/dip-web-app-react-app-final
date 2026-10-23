@@ -20,6 +20,7 @@ export default function PersonPage() {
       <h2 className="title is-4 has-text-info">{person.name}</h2>
       <p>Age: {person.age}</p>
       <Link to="/people">Back to people</Link>
+      <p className="help is-size-7 mt-3">Route IDs with useParams.</p>
     </div>
   );
 }

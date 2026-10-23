@@ -16,7 +16,7 @@ import LikesComponent from "./components/LikesComponent.js";
 import Lifecycle from "./components/LifeCycle.js";
 import LifeCycleShared from "./components/LifeCycleShared.js";
 import UserProfile from "./components/UserProfile.js";
-import ContextApp from "./ContextApp.js";
+import ContextApp from "./pages/ContextApp.js";
 import user from "./data/user.js";
 
 import MainLayout from "./layouts/MainLayout.js";

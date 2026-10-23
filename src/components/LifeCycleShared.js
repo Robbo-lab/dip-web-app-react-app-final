@@ -16,7 +16,7 @@ function LifeCycleShared() {
   const decrement = () => setCount((c) => c - 1);
 
   return (
-    <div className="box has-text-text has-text-centered mt-5 p-5">
+    <>
       <h1 className="title is-3 has-text-text">Lifecycle Monitor</h1>
 
       {/* Child #1: purely presentational */}
@@ -31,23 +31,34 @@ function LifeCycleShared() {
 
       {/* Child #3: demonstrates side‑effect listening */}
       <CounterLogger count={count} />
-    </div>
+      <p className="help is-size-7 mt-3">Shared state through props.</p>
+    </>
   );
 }
 
 // Child #1: reads the shared state
 function CounterDisplay({ count }) {
-  return <p className="is-size-4 has-text-weight-semibold mb-5 has-text-text">Count: {count}</p>;
+  return (
+    <p className="is-size-4 has-text-weight-semibold mb-5 has-text-text">
+      Count: {count}
+    </p>
+  );
 }
 
 // Child #2: updates the shared state via callbacks from the parent
 function CounterControls({ count, onIncrement, onDecrement }) {
   return (
     <div className="buttons is-centered">
-      <button className="button is-danger is-outlined is-medium" onClick={onDecrement} disabled={count === 0}>
+      <button
+        className="button is-danger is-outlined is-medium"
+        onClick={onDecrement}
+        disabled={count === 0}
+      >
         -
       </button>
-      <button className="button is-success is-medium" onClick={onIncrement}>+</button>
+      <button className="button is-success is-medium" onClick={onIncrement}>
+        +
+      </button>
     </div>
   );
 }

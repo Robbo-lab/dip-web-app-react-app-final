@@ -9,6 +9,7 @@ export default function NotFoundPage() {
       <Link to="/" className="button is-link mt-3">
         Return home
       </Link>
+      <p className="help is-size-7 mt-3">Catch-all route fallback.</p>
     </div>
   );
 }

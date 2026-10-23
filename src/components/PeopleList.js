@@ -10,7 +10,7 @@ export default function PeopleList() {
   );
 
   return (
-    <div className="box mt-3">
+    <>
       <h2 className="title is-4 has-text-light">People List</h2>
       <label htmlFor="people-search">Filter people</label>
       <input
@@ -31,6 +31,7 @@ export default function PeopleList() {
           </li>
         ))}
       </ul>
-    </div>
+      <p className="help is-size-7 mt-3">URL filters and list rendering.</p>
+    </>
   );
 }

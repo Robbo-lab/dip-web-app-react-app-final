@@ -21,7 +21,7 @@ export default function GalleryItem() {
   const next = sculptureList[(index + 1) % sculptureList.length];
 
   return (
-    <div className="box mt-3">
+    <>
       <h2 className="title is-5">
         <i>{sculpture.name}</i> by {sculpture.artist}
       </h2>
@@ -36,6 +36,7 @@ export default function GalleryItem() {
       </h3>
       <img src={sculpture.url} alt={sculpture.alt} />
       <p>{sculpture.description}</p>
-    </div>
+      <p className="help is-size-7 mt-3">Route parameters and links.</p>
+    </>
   );
 }

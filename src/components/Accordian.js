@@ -15,7 +15,7 @@ function Panel({ title, isActive, onShow, children }) {
 const Accordion = function Accordion() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="box mt-3">
+    <>
       <h2 className="title is-3">Almaty, Kazakhstan</h2>
 
       <Panel
@@ -38,7 +38,8 @@ const Accordion = function Accordion() {
         the wild <i lang="la">Malus sieversii</i> is considered a likely
         candidate for the ancestor of the modern domestic apple.
       </Panel>
-    </div>
+      <p className="help is-size-7 mt-3">Lifting state up.</p>
+    </>
   );
 };
 

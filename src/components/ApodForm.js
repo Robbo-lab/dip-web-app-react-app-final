@@ -9,7 +9,8 @@ const ApodForm = ({ fetchApodData }) => {
   const handleSubmit = () => {
     const parameters = {};
 
-    if (startDate) parameters.date_from = startDate.replaceAll("-", "").slice(2);
+    if (startDate)
+      parameters.date_from = startDate.replaceAll("-", "").slice(2);
     if (endDate) parameters.date_to = endDate.replaceAll("-", "").slice(2);
     if (count) parameters.per_page = count;
     if (date) parameters.date = date;
@@ -18,7 +19,7 @@ const ApodForm = ({ fetchApodData }) => {
   };
 
   return (
-    <section className="section  has-light-background">
+    <>
       <div className="container">
         <h1 className="title">NASA Astronomy Picture of the Day</h1>
 
@@ -62,7 +63,9 @@ const ApodForm = ({ fetchApodData }) => {
         </div>
 
         <div className="field">
-          <label className="label">Results per page (1–25; list requests only)</label>
+          <label className="label">
+            Results per page (1–25; list requests only)
+          </label>
           <div className="control">
             <input
               id="count"
@@ -76,7 +79,7 @@ const ApodForm = ({ fetchApodData }) => {
           </div>
         </div>
 
-        <div className="field">
+        <div className="field m-4">
           <div className="control">
             <button
               id="fetch-apod"
@@ -88,14 +91,8 @@ const ApodForm = ({ fetchApodData }) => {
             </button>
           </div>
         </div>
-
-        <div id="apod-content" className="box">
-          <p className="has-text-centered">
-            Please enter parameters and click "Fetch APOD".
-          </p>
-        </div>
       </div>
-    </section>
+    </>
   );
 };
 

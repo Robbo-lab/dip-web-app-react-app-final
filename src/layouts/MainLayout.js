@@ -48,7 +48,9 @@ export default function MainLayout() {
                 : "Loading route…"}
             </p>
           )}
-          <Outlet />
+          <section className="section box has-background-scheme-main has-text-text mt-5 component-section" aria-label="React example">
+            <Outlet />
+          </section>
         </div>
       </div>
     </section>

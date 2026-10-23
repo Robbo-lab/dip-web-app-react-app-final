@@ -16,3 +16,9 @@
   width: 100%;
   height: 100%;
 }
+
+/* Keep example headings readable inside the coloured hero in either theme. */
+.component-section .title,
+.component-section .subtitle {
+  color: var(--bulma-text-strong) !important;
+}
