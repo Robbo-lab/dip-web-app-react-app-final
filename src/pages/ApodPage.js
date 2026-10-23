@@ -9,14 +9,16 @@ export default function ApodPage() {
   const [error, setError] = useState("");
 
   const fetchApodData = async (params) => {
-    const apiUrl = buildApiUrl(params);
-
     setApodData(null);
     setError("");
 
     try {
+      const apiUrl = buildApiUrl(params);
       const response = await fetch(apiUrl);
       const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || `Request failed (${response.status})`);
+      }
       setApodData(Array.isArray(data) ? data : [data]);
     } catch (err) {
       setError(`Error fetching data: ${err.message}`);

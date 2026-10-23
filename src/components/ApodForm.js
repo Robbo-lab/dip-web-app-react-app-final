@@ -4,18 +4,17 @@ const ApodForm = ({ fetchApodData }) => {
   const [date, setDate] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [count, setCount] = useState(0);
-  const [thumbs, setThumbs] = useState(false);
-  const [formState, setFormState] = useState("empty");
+  const [count, setCount] = useState(5);
+  const [page, setPage] = useState(1);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     const parameters = {};
 
+    if (startDate) parameters.date_from = startDate.replaceAll("-", "").slice(2);
+    if (endDate) parameters.date_to = endDate.replaceAll("-", "").slice(2);
+    if (count) parameters.per_page = count;
+    if (page) parameters.page = page;
     if (date) parameters.date = date;
-    if (startDate) parameters.start_date = startDate;
-    if (endDate) parameters.end_date = endDate;
-    if (count) parameters.count = count;
-    if (thumbs) parameters.thumbs = true;
 
     fetchApodData(parameters);
   };
@@ -65,10 +64,12 @@ const ApodForm = ({ fetchApodData }) => {
         </div>
 
         <div className="field">
-          <label className="label">Count</label>
+          <label className="label">Results per page (1–25; list requests only)</label>
           <div className="control">
             <input
               id="count"
+              min="1"
+              max="25"
               className="input"
               type="number"
               value={count}
@@ -78,14 +79,15 @@ const ApodForm = ({ fetchApodData }) => {
         </div>
 
         <div className="field">
-          <label className="label">Include Video Thumbnails</label>
+          <label className="label">Page (list requests only)</label>
           <div className="control">
             <input
-              id="thumbs"
-              className="checkbox"
-              type="checkbox"
-              value={thumbs}
-              onChange={(event) => setThumbs(event.target.checked)}
+              id="page"
+              className="input"
+              type="number"
+              min="1"
+              value={page}
+              onChange={(event) => setPage(event.target.value)}
             />
           </div>
         </div>
@@ -96,7 +98,7 @@ const ApodForm = ({ fetchApodData }) => {
               id="fetch-apod"
               className="button is-link"
               type="submit"
-              onClick={(event) => handleSubmit()}
+              onClick={handleSubmit}
             >
               Fetch APOD
             </button>

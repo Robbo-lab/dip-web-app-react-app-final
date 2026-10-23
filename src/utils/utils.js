@@ -8,13 +8,17 @@ export const formatSkills = function (skills) {
   return skills.map((skill) => skill.toUpperCase());
 };
 
+// APOD Basic does not require an API key.
 export const buildApiUrl = (parameters) => {
-  const apiKey = process.env.NASA_API_KEY;
-  let apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+  // The new API requires single dates in the URL path as YYMMDD, not a date query parameter.
+  if (parameters.date) {
+    return `https://science.nasa.gov/wp-json/wp/v2/apod-basic/${parameters.date.replaceAll("-", "").slice(2)}`;
+  }
 
-  // Step 1 Add the parameters to the URL so the api is used properly
+  let apiUrl = "https://science.nasa.gov/wp-json/wp/v2/apod-basic?";
+
   for (const key in parameters) {
-    apiUrl += `&${key}=${parameters[key]}`;
+    apiUrl += `${key}=${encodeURIComponent(parameters[key])}&`;
   }
 
   return apiUrl;

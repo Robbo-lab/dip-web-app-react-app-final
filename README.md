@@ -50,32 +50,3 @@ For Actions, set the repository secret `NASA_API_KEY`. The value is embedded in
 the browser bundle and is visible to visitors; it is not a server-side secret.
 The previously hard-coded key should be rotated if it belongs to you. `.env`
 files are not automatically loaded.
-
-## Consolidation decisions
-
-- Adopted the React 19.2, React Router 7 and Bulma 1.0.4 version ranges from
-  `my-react-app`, with React and React DOM kept aligned.
-- Added its manual deployment and lint commands, plus a `dev` alias.
-- Kept only UI libraries in `dependencies`. Build, lint and deployment tools
-  belong in `devDependencies`; install those before building for deployment.
-- Declared ESLint's directly imported `@eslint/js` and `globals` packages.
-  Used CommonJS configuration to match the existing Webpack setup.
-- Removed unused `copy-webpack-plugin` and `dotenv`, and the placeholder failing
-  test command. No automated application test suite exists yet.
-- Added a lockfile to commit for reproducible `npm ci` installs.
-- Fixed the missing person-detail route and React import in the error page,
-  enabled the existing context lookup in `ThirdComponent`,
-  and standardized router imports on the declared `react-router-dom` package.
-
-Lint errors fail deployment. Existing unused-variable and effect-dependency
-warnings in teaching examples remain warnings for later cleanup.
-
-## Remaining review findings
-
-- The APOD page does not check `response.ok`, so API errors may be treated as
-  successful data. This needs a separate API error-handling change.
-- The production bundle triggers Webpack size warnings (about 971 KiB).
-- Installation audit reports seven development-tool dependency advisories
-  (five high, two moderate) through `webpack-dev-server` 5. The suggested fix
-  is a major upgrade to version 6; that upgrade is outside this consolidation.
-- Lint reports unused variables in existing teaching examples.
