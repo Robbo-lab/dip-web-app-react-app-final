@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import "../assets/styles.css";
 
 export default function StyledComponent() {
-  const [animationDuration, setAnimationDuration] = useState(0);
+  const [animationDuration, setAnimationDuration] = useState(1);
 
   function handleDurationChange() {
     setAnimationDuration(animationDuration + 1);
